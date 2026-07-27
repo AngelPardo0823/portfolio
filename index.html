@@ -248,30 +248,23 @@
     background: #000;
     cursor:pointer;
   }
-  .tile-thumb{
-    position:absolute; inset:0;
-    background: linear-gradient(155deg, rgba(255,255,255,0.05), rgba(0,0,0,0.4) 60%);
+  .tile video{
+    width:100%; height:100%; object-fit:cover; display:block;
+    filter: saturate(1.15) contrast(1.05);
+    transition: transform .5s ease, filter .3s ease;
   }
-  .tile:nth-child(5n+1) .tile-thumb{ background: linear-gradient(155deg, color-mix(in srgb, var(--pink) 35%, #0b0b12), #0b0b12 75%); }
-  .tile:nth-child(5n+2) .tile-thumb{ background: linear-gradient(155deg, color-mix(in srgb, var(--cyan) 35%, #0b0b12), #0b0b12 75%); }
-  .tile:nth-child(5n+3) .tile-thumb{ background: linear-gradient(155deg, color-mix(in srgb, var(--green) 35%, #0b0b12), #0b0b12 75%); }
-  .tile:nth-child(5n+4) .tile-thumb{ background: linear-gradient(155deg, color-mix(in srgb, var(--purple) 35%, #0b0b12), #0b0b12 75%); }
-  .tile:nth-child(5n+5) .tile-thumb{ background: linear-gradient(155deg, color-mix(in srgb, var(--orange) 35%, #0b0b12), #0b0b12 75%); }
+  .tile:nth-child(5n+1) video{ outline: 2px solid color-mix(in srgb, var(--pink) 50%, transparent); outline-offset:-2px; }
+  .tile:nth-child(5n+2) video{ outline: 2px solid color-mix(in srgb, var(--cyan) 50%, transparent); outline-offset:-2px; }
+  .tile:nth-child(5n+3) video{ outline: 2px solid color-mix(in srgb, var(--green) 50%, transparent); outline-offset:-2px; }
+  .tile:nth-child(5n+4) video{ outline: 2px solid color-mix(in srgb, var(--purple) 50%, transparent); outline-offset:-2px; }
+  .tile:nth-child(5n+5) video{ outline: 2px solid color-mix(in srgb, var(--orange) 50%, transparent); outline-offset:-2px; }
 
   .tile-badge{
-    position:absolute; top:50%; left:50%;
-    width: 52px; height:52px;
-    transform: translate(-50%,-50%);
+    position:absolute; top:10px; right:10px;
+    width: 22px; height:22px;
     z-index:2;
-    border-radius:50%;
-    border: 1px solid rgba(255,255,255,0.35);
-    display:flex; align-items:center; justify-content:center;
-    background: rgba(0,0,0,0.25);
-    backdrop-filter: blur(2px);
-    transition: transform .25s ease, background .25s ease;
   }
-  .tile-badge svg{ width:18px; height:18px; }
-  .tile:hover .tile-badge{ transform: translate(-50%,-50%) scale(1.12); background: rgba(0,0,0,0.4); }
+  .tile-badge svg{ width:100%; height:100%; filter: drop-shadow(0 0 3px rgba(0,0,0,0.6)); }
 
   .tile-caption{
     position:absolute; left:0; right:0; bottom:0;
@@ -283,6 +276,8 @@
     color: #fff;
     z-index:2;
   }
+
+  .tile:hover video{ transform: scale(1.06); filter: saturate(1.35) contrast(1.1) hue-rotate(4deg); }
 
   .tile:hover::before{
     content:'';
@@ -453,7 +448,7 @@
     </video>
   </div>
   <div class="bg-word">VIDEO · VIDEO ·</div>
-  <span class="sticker s1">▶ REEL 05</span>
+  <span class="sticker s1">▶️ REEL 05</span>
   <span class="sticker s2">4K / 24FPS</span>
   <span class="sticker s3">COL 2026</span>
   <div class="hero-inner">
@@ -484,32 +479,42 @@
 
   <div class="feed-grid">
 
-    <div class="tile" onclick="openLightbox('1KuoA6iEbyBXIRi6DztUIHY8-yA_FCNDB','Focus Box Gym — Publicidad / Fitness')">
-      <div class="tile-thumb"></div>
+    <div class="tile" onclick="openDetail('videos/Focus%20Box%20Gym.mp4','Focus Box Gym — Publicidad / Fitness')">
+      <video muted autoplay loop playsinline preload="auto">
+        <source src="videos/Focus%20Box%20Gym.mp4" type="video/mp4">
+      </video>
       <div class="tile-badge"><svg viewBox="0 0 24 24" fill="none"><path d="M8 5l11 7-11 7V5z" fill="#fff"/></svg></div>
       <div class="tile-caption">Focus Box Gym — Publicidad / Fitness</div>
     </div>
 
-    <div class="tile" onclick="openLightbox('1dWgORkr_VwWWwDFpSGv3x_L7YXa0OtkO','Cordillera × Old Parr — Comercial')">
-      <div class="tile-thumb"></div>
+    <div class="tile" onclick="openDetail('videos/cordillera_old_parr%20(540p).mp4','Cordillera × Old Parr — Comercial')">
+      <video muted autoplay loop playsinline preload="auto">
+        <source src="videos/cordillera_old_parr%20(540p).mp4" type="video/mp4">
+      </video>
       <div class="tile-badge"><svg viewBox="0 0 24 24" fill="none"><path d="M8 5l11 7-11 7V5z" fill="#fff"/></svg></div>
       <div class="tile-caption">Cordillera × Old Parr — Comercial</div>
     </div>
 
-    <div class="tile" onclick="openLightbox('1dWgORkr_VwWWwDFpSGv3x_L7YXa0OtkO','Cordillera × Buchanan\'s — Comercial')">
-      <div class="tile-thumb"></div>
+    <div class="tile" onclick="openDetail('videos/cordillera%20buchanans_848p.mp4','Cordillera × Buchanan\'s — Comercial')">
+      <video muted autoplay loop playsinline preload="auto">
+        <source src="videos/cordillera%20buchanans_848p.mp4" type="video/mp4">
+      </video>
       <div class="tile-badge"><svg viewBox="0 0 24 24" fill="none"><path d="M8 5l11 7-11 7V5z" fill="#fff"/></svg></div>
       <div class="tile-caption">Cordillera × Buchanan's — Comercial</div>
     </div>
 
-    <div class="tile" onclick="openLightbox('1S1vx1-lESt-Igh4UW2dtwIPCYK_4SA2j','Entre Panes — Restaurante / Food')">
-      <div class="tile-thumb"></div>
+    <div class="tile" onclick="openDetail('videos/ENTRE%20PANES.mp4','Entre Panes — Restaurante / Food')">
+      <video muted autoplay loop playsinline preload="auto">
+        <source src="videos/ENTRE%20PANES.mp4" type="video/mp4">
+      </video>
       <div class="tile-badge"><svg viewBox="0 0 24 24" fill="none"><path d="M8 5l11 7-11 7V5z" fill="#fff"/></svg></div>
       <div class="tile-caption">Entre Panes — Restaurante / Food</div>
     </div>
 
-    <div class="tile" onclick="openLightbox('13kFKMT5lkxdOjFUBE6RV8CWhktOwgiUG','Reel general — Demo')">
-      <div class="tile-thumb"></div>
+    <div class="tile" onclick="openDetail('videos/video%20muestra%20final%20mas%20volumen.mp4','Reel general — Demo')">
+      <video muted autoplay loop playsinline preload="auto">
+        <source src="videos/video%20muestra%20final%20mas%20volumen.mp4" type="video/mp4">
+      </video>
       <div class="tile-badge"><svg viewBox="0 0 24 24" fill="none"><path d="M8 5l11 7-11 7V5z" fill="#fff"/></svg></div>
       <div class="tile-caption">Reel general — Demo</div>
     </div>
@@ -522,10 +527,12 @@
   <div class="eyebrow">Pieza destacada</div>
   <h2 class="section-title">Demo Reel</h2>
   <div class="reel-frame">
-    <!-- ID sin confirmar: usé el segundo link que llegó bajo "Focus Box Gym" porque no vino un link
-         separado para "video muestra final mas volumen.mp4". Confírmalo o mándame el correcto. -->
-    <iframe src="https://drive.google.com/file/d/13kFKMT5lkxdOjFUBE6RV8CWhktOwgiUG/preview"
-            allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
+    <!-- Recuerda: este archivo pesa ~212MB, GitHub bloquea subidas de más de 100MB por la web.
+         Comprímelo (CloudConvert, HandBrake) antes de subirlo a videos/ -->
+    <video controls preload="metadata">
+      <source src="videos/video%20muestra%20final%20mas%20volumen.mp4" type="video/mp4">
+      Tu navegador no soporta video HTML5.
+    </video>
   </div>
   <div class="reel-tag"><span>REEL_MASTER_V3</span><span>4K · 24FPS</span></div>
 </section>
@@ -578,25 +585,33 @@
 <div class="lightbox" id="lightbox">
   <div class="lightbox-inner">
     <button class="lightbox-close" onclick="closeLightbox()">CERRAR ✕</button>
-    <iframe id="lightbox-frame" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    <video id="lightbox-video" controls playsinline></video>
     <div class="lightbox-caption" id="lightbox-caption"></div>
   </div>
 </div>
 
 <script>
-  function openLightbox(driveId, caption){
+  function openDetail(src, caption){
+    // pausa los previews en miniatura mientras se ve el video grande
+    document.querySelectorAll('.tile video').forEach(v => v.pause());
+
     const lb = document.getElementById('lightbox');
-    const frame = document.getElementById('lightbox-frame');
+    const video = document.getElementById('lightbox-video');
     const cap = document.getElementById('lightbox-caption');
-    frame.src = 'https://drive.google.com/file/d/' + driveId + '/preview';
+    video.src = src;
     cap.textContent = caption || '';
     lb.classList.add('active');
+    video.play().catch(()=>{});
   }
   function closeLightbox(){
     const lb = document.getElementById('lightbox');
-    const frame = document.getElementById('lightbox-frame');
-    frame.src = ''; // detiene la reproducción al cerrar
+    const video = document.getElementById('lightbox-video');
+    video.pause();
+    video.removeAttribute('src');
+    video.load();
     lb.classList.remove('active');
+    // reanuda los previews en miniatura
+    document.querySelectorAll('.tile video').forEach(v => v.play().catch(()=>{}));
   }
   document.getElementById('lightbox').addEventListener('click', function(e){
     if(e.target === this) closeLightbox();
